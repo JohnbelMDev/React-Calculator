@@ -9,6 +9,8 @@ function App() {
 
   const [total, setTotal] = useState(num1 + num2);
 
+  const [toggled, setToggled] = useState(false)
+
   // const [product, setProduct] = useState(num1 + num2);
 
   function calCulateTotal (){
@@ -34,8 +36,8 @@ function App() {
     <div className="App">
     <h1>React Calculator</h1>
     <div className="number-inputs">
-    <input type="number" onChange = {e => setNum1(+e.target.value)} placeholder="0" value = {num1} />
-    <input type="number" onChange = {e => setNum2(+e.target.value)} placeholder="0" value = {num2} />
+    <input type="number" onChange = {e => setNum1(+e.target.value)}  value = {num1} />
+    <input type="number" onChange = {e => setNum2(+e.target.value)} value = {num2} />
     </div>
     <div className ="Buttons">
     <button onClick ={calCulateTotal}>Add Them</button>
@@ -43,9 +45,10 @@ function App() {
     <button onClick ={subTractThem}>SubTractThem Them</button>
     <button onClick ={divideThem}>Divide Them!</button>
     </div>
-
-
-    <h2>{total}</h2>
+    <h3>{toggled && <> {total} </>}</h3>
+    <button onClick ={()=> setToggled(toggled => !toggled)}>
+    click to show result
+    </button>
 
 
     </div>
